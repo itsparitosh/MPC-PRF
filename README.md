@@ -28,12 +28,6 @@ make deps     # builds libsodium into ./deps
 make          # uses ./deps automatically
 ```
 
-```
-make              # mpcprf (one server) and test_prf (unit tests)
-make test         # 45 unit tests (incl. attempts to forge or tamper with every proof)
-make run-tests    # the real program: an honest run and 11 cheating runs (incl. a silent server)
-```
-
 `params.txt` holds the public parameters (p, d, Q, g, h). If it is missing, it
 is generated once (about a minute).
 
