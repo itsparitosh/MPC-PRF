@@ -1,0 +1,3 @@
+[S0] run, 128 core(s), listening on port 9512
+[S0] BLAME S1: S1: writer's complaint upheld: wrong share in delivery mode (log record 35)
+[S0] evidence saved in test_run/cheat_deliver/s0.run.log

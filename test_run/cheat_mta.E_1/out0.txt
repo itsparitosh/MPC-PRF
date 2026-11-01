@@ -1,0 +1,3 @@
+[S0] run, 128 core(s), listening on port 9504
+[S0] BLAME S1: S1: MtA: invalid proof pi^enc for E (log record 2)
+[S0] evidence saved in test_run/cheat_mta.E_1/s0.run.log

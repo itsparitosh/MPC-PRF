@@ -1,0 +1,3 @@
+[S1] run, 128 core(s), connecting to 127.0.0.1:9509
+[S1] BLAME S0: S0: invalid pi^pow / pi^prod for a wmask (log record 1)
+[S1] evidence saved in test_run/cheat_mask.pow_0/s1.run.log

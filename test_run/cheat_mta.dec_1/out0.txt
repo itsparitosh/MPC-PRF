@@ -1,0 +1,3 @@
+[S0] run, 128 core(s), listening on port 9508
+[S0] BLAME S1: S1: MtA: invalid proof pi^dec for S_A's share (log record 10)
+[S0] evidence saved in test_run/cheat_mta.dec_1/s0.run.log

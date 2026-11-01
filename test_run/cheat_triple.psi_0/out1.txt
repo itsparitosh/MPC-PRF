@@ -1,0 +1,3 @@
+[S1] run, 128 core(s), connecting to 127.0.0.1:9503
+[S1] BLAME S0: S0: invalid proof pi^prod for psi (log record 0)
+[S1] evidence saved in test_run/cheat_triple.psi_0/s1.run.log

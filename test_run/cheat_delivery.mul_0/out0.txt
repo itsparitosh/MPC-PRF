@@ -1,0 +1,2 @@
+[S0] run, 128 core(s), listening on port 9511
+[S0] S1 stopped the run: S0: opening does not match commitment: delivery.mul item 0

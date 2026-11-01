@@ -1,0 +1,2 @@
+[S0] run, 128 core(s), listening on port 9507
+[S0] S1 stopped the run: S0: MtA: invalid proof pi^aff for E'

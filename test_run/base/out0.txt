@@ -1,0 +1,51 @@
+[S0] run, 128 core(s), listening on port 9502
+CHECK OK: every output is (k + x)^d
+
+[S0] 3 PRF call(s) per mode, 128 core(s)
+----------------------------------------------------------------------------
+SHARED MODE (write phase)                           total (ms) per call (ms)
+  (y = (k + x)^d stays secret-shared)
+OFFLINE (per call: 1 write mask + 1 Beaver triple, 4 MtA runs)
+  MtA: Paillier encrypt, E', decrypt                      61.8          20.6
+  Beaver triple: local alpha, beta, psi                    0.2           0.1
+  mask: local m, m^e, inverse                              0.3           0.1
+  Pedersen commitments (make, check in G)                 19.0           6.3
+  proof pi^enc  (make + check)                            80.9          27.0
+  proof pi^aff  (make + check)                           145.2          48.4
+  proof pi^dec  (make + check)                           135.8          45.3
+  proof pi^prod (make + check)                             8.1           2.7
+  proof pi^pow  (make + check)                           370.9         123.6
+  network: 3 rounds, incl. waiting for the peer           48.3          16.1
+OFFLINE TOTAL                                            870.6         290.2
+ONLINE (2 rounds)
+  round 1: Beaver Mult, open eps and delta                25.3           8.4
+  round 2: open omega; omega^d; y = omega^d * v           36.0          12.0
+ONLINE TOTAL                                              61.3          20.4
+OFFLINE + ONLINE                                         931.9         310.6
+----------------------------------------------------------------------------
+DELIVERY MODE (setup phase)                         total (ms) per call (ms)
+  (the writer learns (k + x)^d)
+OFFLINE (per call: 1 setup mask + 1 Beaver triple, 3 MtA runs)
+  MtA: Paillier encrypt, E', decrypt                      60.9          20.3
+  Beaver triple: local alpha, beta, psi                    0.1           0.0
+  mask: local m, m^e, inverse                              0.1           0.0
+  Pedersen commitments (make, check in G)                 16.6           5.5
+  proof pi^enc  (make + check)                            81.4          27.1
+  proof pi^aff  (make + check)                           143.3          47.8
+  proof pi^dec  (make + check)                           132.5          44.2
+  proof pi^prod (make + check)                             6.3           2.1
+  proof pi^pow  (make + check)                           161.5          53.8
+  network: 3 rounds, incl. waiting for the peer           33.1          11.0
+OFFLINE TOTAL                                            635.9         212.0
+ONLINE (2 rounds)
+  round 1: Beaver Mult, open eps and delta                19.7           6.6
+  round 2: encrypt to the writer, post                    30.6          10.2
+ONLINE TOTAL (servers)                                    50.3          16.8
+  writer: decrypt, check both shares, omega^d              2.9           1.0
+OFFLINE + ONLINE (servers)                               686.2         228.7
+----------------------------------------------------------------------------
+Times are wall-clock time on this server, with all its cores working. Each line counts
+everything of that kind done for all calls (e.g. every pi^dec made and checked), and the
+lines add up to the totals. per call = total / 3 (the number of PRF calls).
+The check of a mask's pi^prod is batched with its pi^pow and counted there.
+[S0] total 1.68 s, sent 2189.3 KiB, received 2185.2 KiB, 16 rounds

@@ -1,0 +1,4 @@
+[S1] run, 128 core(s), connecting to 127.0.0.1:9511
+[S1] waiting for S0 at 127.0.0.1:9511 ...
+[S1] BLAME S0: S0: opening does not match commitment: delivery.mul item 0 (log record 32)
+[S1] evidence saved in test_run/cheat_delivery.mul_0/s1.run.log

@@ -1,0 +1,3 @@
+[S1] run, 128 core(s), connecting to 127.0.0.1:9507
+[S1] BLAME S0: S0: MtA: invalid proof pi^aff for E' (log record 4)
+[S1] evidence saved in test_run/cheat_mta.Ep_0/s1.run.log

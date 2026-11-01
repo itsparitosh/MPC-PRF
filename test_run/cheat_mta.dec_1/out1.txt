@@ -1,0 +1,3 @@
+[S1] run, 128 core(s), connecting to 127.0.0.1:9508
+[S1] waiting for S0 at 127.0.0.1:9508 ...
+[S1] S0 stopped the run: S1: MtA: invalid proof pi^dec for S_A's share
