@@ -43,26 +43,18 @@ make
 ./mpcprf p0 run --n 8                 ./mpcprf p1 run --n 8   # n PRF calls in each mode
 ```
 
-* `init` (once, ~10-30 s): signing keys; Paillier keys with π^prm, π^mod,
+* `init` (once): signing keys; Paillier keys with π^prm, π^mod,
   π^fac; the PRF key shares with proofs of knowledge. Saved in
   `run/s<b>.state`. It prints its own timing table (INIT); this is a one-time
   cost of the system and is not part of any PRF call.
 * `run --n N`: N PRF calls in shared mode and N in delivery mode, each with
   its own preprocessing, and one timing table per mode. Both servers must use
   the same options.
-* `--mode shared` or `--mode delivery`: measure only one mode (default: both).
-* `--reps R`: repeats the whole run R times and prints the average (less noise).
-* `--check`: opens k at the end and checks every output against (k + x)^d.
-  Demo only; a real system never opens k.
 * `--cores C`: how many cores this server may use (default: all of them).
   Each server takes its own value, e.g. `./mpcprf p0 run --n 16 --cores 4`
   and `./mpcprf p1 run --n 16 --cores 4`. The report shows the number used.
   If both servers run on the same machine, they share its cores, so give each
   at most half of them.
-* `--deadline S`: the round deadline in seconds (default 3600). A server that
-  sends nothing for that long is blamed, as in the paper.
-* Other options: `--dir run --host 127.0.0.1 --port 9300`.
-  For two machines, run S0 on one and give S1 `--host <S0's address>`.
 
 What uses several cores: every preprocessing step runs over all calls of
 the batch in parallel (and the ~380 product proofs inside a power proof run
